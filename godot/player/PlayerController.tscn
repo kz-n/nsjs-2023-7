@@ -1,0 +1,129 @@
+[gd_scene load_steps=11 format=3 uid="uid://clattllvt4rmf"]
+
+[ext_resource type="Script" path="res://player/PlayerController.gd" id="1_84w2n"]
+[ext_resource type="Texture2D" uid="uid://df1dnn40x66hv" path="res://assets/kenney/monochrome_tilemap_transparent_packed.png" id="2_b1qfy"]
+[ext_resource type="Shader" path="res://shaders/vignette.gdshader" id="3_g7pms"]
+[ext_resource type="AudioStream" uid="uid://cd4emihr7jbe3" path="res://assets/sound/Amb_InnerMind_LOOP.wav" id="4_cuorw"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4yoc0"]
+radius = 32.5
+height = 67.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l51qx"]
+atlas = ExtResource("2_b1qfy")
+region = Rect2(0, 192, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6f7qa"]
+atlas = ExtResource("2_b1qfy")
+region = Rect2(32, 192, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oi50i"]
+atlas = ExtResource("2_b1qfy")
+region = Rect2(48, 192, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_s7jlu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l51qx")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6f7qa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oi50i")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_hoyr3"]
+shader = ExtResource("3_g7pms")
+shader_parameter/player_position = Vector2(1.055, 0)
+shader_parameter/color = Color(0, 0, 0, 1)
+shader_parameter/MULTIPLIER = 0.56
+shader_parameter/SCALE = 0.3
+shader_parameter/SOFTNESS = 1.565
+
+[node name="PlayerController" type="CharacterBody2D"]
+script = ExtResource("1_84w2n")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, 11)
+scale = Vector2(0.8, 0.8)
+shape = SubResource("CapsuleShape2D_4yoc0")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CollisionShape2D"]
+texture_filter = 1
+position = Vector2(0.5, -11)
+scale = Vector2(4, 4)
+sprite_frames = SubResource("SpriteFrames_s7jlu")
+animation = &"idle"
+
+[node name="Camera2D" type="Camera2D" parent="."]
+offset = Vector2(23.255, 0)
+zoom = Vector2(1.5, 1.5)
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+visible = false
+material = SubResource("ShaderMaterial_hoyr3")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="O2ProgressBar" type="ProgressBar" parent="CanvasLayer"]
+offset_left = 49.0
+offset_right = 70.0
+offset_bottom = 69.0
+max_value = 30.0
+value = 30.0
+allow_greater = true
+fill_mode = 3
+show_percentage = false
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+offset_left = 21.0
+offset_top = 22.0
+offset_right = 61.0
+offset_bottom = 48.0
+text = "O2"
+
+[node name="HpProgressBar" type="ProgressBar" parent="CanvasLayer"]
+offset_left = 110.0
+offset_top = -1.0
+offset_right = 131.0
+offset_bottom = 68.0
+max_value = 50.0
+value = 50.0
+allow_greater = true
+fill_mode = 3
+show_percentage = false
+
+[node name="Label2" type="Label" parent="CanvasLayer"]
+offset_left = 82.0
+offset_top = 21.0
+offset_right = 122.0
+offset_bottom = 47.0
+text = "HP"
+
+[node name="O2Timer" type="Timer" parent="."]
+autostart = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_cuorw")
+volume_db = -9.686
+autoplay = true
+
+[connection signal="timeout" from="O2Timer" to="." method="_on_o_2_timer_timeout"]

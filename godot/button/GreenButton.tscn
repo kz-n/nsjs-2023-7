@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://be7a0vwerkmhy"]
+
+[ext_resource type="PackedScene" uid="uid://bqlq31nc6a5wy" path="res://button/Button.tscn" id="1_k4352"]
+
+[node name="GreenButton" type="Node2D"]
+
+[node name="Button" parent="." instance=ExtResource("1_k4352")]
+color = Color(0, 1, 0, 1)

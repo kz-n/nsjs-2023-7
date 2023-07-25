@@ -1,0 +1,84 @@
+[gd_scene load_steps=9 format=3 uid="uid://bxhs2g2wlg01i"]
+
+[ext_resource type="Script" path="res://levels/level_3.gd" id="1_630bm"]
+[ext_resource type="TileSet" uid="uid://b0ssei7yt3pu4" path="res://levels/tileset.tres" id="2_t8x22"]
+[ext_resource type="PackedScene" uid="uid://clattllvt4rmf" path="res://player/PlayerController.tscn" id="3_mkt3h"]
+[ext_resource type="PackedScene" uid="uid://dfjb2dpxphywj" path="res://sparks/Sparks.tscn" id="4_kf1ie"]
+[ext_resource type="PackedScene" uid="uid://bqlq31nc6a5wy" path="res://button/Button.tscn" id="5_mpb7o"]
+[ext_resource type="PackedScene" uid="uid://c1hftvu2picpq" path="res://interactable/Door.tscn" id="6_dj0vd"]
+[ext_resource type="PackedScene" uid="uid://biq12otwmpl0e" path="res://interactable/Medkit.tscn" id="7_2lucn"]
+[ext_resource type="Texture2D" uid="uid://bgbwwluv1vt7t" path="res://assets/exit-arrow.png" id="8_07p6l"]
+
+[node name="level_3" type="Node2D"]
+script = ExtResource("1_630bm")
+
+[node name="TileMap" type="TileMap" parent="."]
+modulate = Color(0.717647, 0.717647, 0.717647, 1)
+texture_filter = 1
+position = Vector2(1, 0)
+tile_set = ExtResource("2_t8x22")
+format = 2
+layer_0/name = "base"
+layer_0/tile_data = PackedInt32Array(393215, 262144, 11, 327680, 262144, 11, 327681, 262144, 11, 262145, 262144, 11, 196609, 262144, 11, 196608, 262144, 11, 262143, 262144, 11, 327679, 262144, 11, 262144, 262144, 11, 131073, 262144, 11, 131072, 262144, 11, 196607, 262144, 11, 65537, 262144, 11, 65536, 262144, 11, 131071, 262144, 11, 65535, 262144, 11, 0, 262144, 11, 1, 262144, 11, -65535, 262144, 11, -65536, 262144, 11, -1, 262144, 11, 393214, 262144, 11, 327682, 262144, 11, 262146, 262144, 11, 196610, 262144, 11, 131074, 262144, 11, 65538, 262144, 11, 2, 262144, 11, -65534, 262144, 11, 65534, 262144, 11, 131070, 262144, 11, 196606, 262144, 11, 262142, 262144, 11, 327678, 262144, 11, -2, 262144, 11, 393213, 262144, 11, 327677, 262144, 11, 262141, 262144, 11, 196605, 262144, 11, 131069, 262144, 11, 65533, 262144, 11, -3, 262144, 11, 327683, 262144, 11, 262147, 262144, 11, 196611, 262144, 11, 131075, 262144, 11, 65539, 262144, 11, 3, 262144, 11, -65533, 262144, 11, 327684, 1245184, 7, 262148, 1245184, 7, 196612, 1245184, 7, 131076, 1245184, 7, 65540, 1245184, 7, 4, 1245184, 7, -65532, 1245184, 7, 393212, 1245184, 7, 327676, 1245184, 7, 262140, 1245184, 7, 196604, 1245184, 7, 131068, 1245184, 7, 65532, 1245184, 7, -4, 1245184, 7, 458748, 1245184, 8, 458749, 1310720, 8, 458750, 1310720, 8, 458751, 1310720, 8, 393216, 1310720, 8, 393217, 1310720, 8, 393218, 1179648, 9, 393219, 1310720, 8, 393220, 1376256, 8, -131069, 262144, 11, -131070, 262144, 11, -131071, 262144, 11, -196607, 262144, 11, -196606, 262144, 11, -196605, 262144, 11, -262141, 655360, 10, -262142, 655360, 10, -262143, 655360, 10, -131068, 786432, 15, -131067, 786432, 15, -131066, 786432, 15, -131065, 786432, 15, -131064, 786432, 15, -131063, 786432, 15, -131062, 786432, 15, -131061, 786432, 15, -196597, 786432, 15, -262133, 786432, 15, -262134, 655360, 10, -262135, 655360, 10, -262136, 655360, 10, -262137, 655360, 10, -262138, 655360, 10, -262139, 655360, 10, -262140, 655360, 10, -196604, 262144, 11, -196603, 262144, 11, -196602, 262144, 11, -196601, 262144, 11, -196600, 262144, 11, -196599, 262144, 11, -196598, 262144, 11, -131072, 262144, 11, -65537, 262144, 11, -65538, 262144, 11, -131074, 262144, 11, -131075, 262144, 11, -196611, 655360, 10, -196610, 655360, 10, -196609, 655360, 10, -131073, 262144, 11, -65539, 262144, 11, -196608, 262144, 11, -262144, 655360, 10, -65540, 786432, 15, -131076, 786432, 15, -196612, 786432, 15, -262148, 786432, 15, -262147, 655360, 9, -262146, 655360, 9, -262145, 655360, 9, -327680, 655360, 9, -327679, 655360, 9, -327678, 655360, 9, -327677, 655360, 9, -327676, 655360, 9, -327675, 655360, 9, -327674, 655360, 9, -327673, 655360, 9, -327672, 1179648, 9, -327671, 655360, 9, -327670, 655360, 9, -327684, 786432, 15, -327683, 786432, 15, -327682, 786432, 15, -327681, 786432, 15, -393216, 786432, 15, -393215, 786432, 15, -393214, 786432, 15, -393213, 786432, 15, -393212, 786432, 15, -393211, 786432, 15, -393210, 786432, 15, -393209, 786432, 15, -393208, 786432, 15, -393207, 786432, 15, -393206, 786432, 15, -393205, 786432, 15, -327669, 786432, 15)
+layer_1/name = "details"
+layer_1/enabled = true
+layer_1/modulate = Color(1, 1, 1, 1)
+layer_1/y_sort_enabled = false
+layer_1/y_sort_origin = 0
+layer_1/z_index = 0
+layer_1/tile_data = PackedInt32Array(393219, 983040, 7, -327680, 851968, 9, -327678, 851968, 9, -327676, 851968, 9, -262146, 851968, 9, -327674, 851968, 9, -327675, 983040, 5)
+layer_2/name = "interactions"
+layer_2/enabled = true
+layer_2/modulate = Color(1, 1, 1, 1)
+layer_2/y_sort_enabled = false
+layer_2/y_sort_origin = 0
+layer_2/z_index = 0
+layer_2/tile_data = PackedInt32Array(-196610, 5, 262144)
+layer_3/name = "WIRE"
+layer_3/enabled = true
+layer_3/modulate = Color(1, 1, 1, 1)
+layer_3/y_sort_enabled = false
+layer_3/y_sort_origin = 0
+layer_3/z_index = 0
+layer_3/tile_data = PackedInt32Array()
+
+[node name="PlayerController" parent="." instance=ExtResource("3_mkt3h")]
+position = Vector2(108, 341)
+
+[node name="Sparks" parent="." instance=ExtResource("4_kf1ie")]
+position = Vector2(128, 225)
+
+[node name="Sparks2" parent="." instance=ExtResource("4_kf1ie")]
+position = Vector2(-80, 152)
+
+[node name="Sparks3" parent="." instance=ExtResource("4_kf1ie")]
+position = Vector2(112, 15)
+
+[node name="Button" parent="." instance=ExtResource("5_mpb7o")]
+position = Vector2(-93, 301)
+color = Color(0.258824, 0.803922, 1, 1)
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="Timer2" type="Timer" parent="."]
+
+[node name="Timer3" type="Timer" parent="."]
+
+[node name="SpawnTimer" type="Timer" parent="."]
+
+[node name="Door" parent="." instance=ExtResource("6_dj0vd")]
+position = Vector2(544, -284)
+
+[node name="Medkit" parent="." instance=ExtResource("7_2lucn")]
+position = Vector2(354, -255)
+
+[node name="Exit-arrow" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(227, 408)
+texture = ExtResource("8_07p6l")
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="Timer2" to="." method="_on_timer_2_timeout"]
+[connection signal="timeout" from="Timer3" to="." method="_on_timer_3_timeout"]
+[connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]

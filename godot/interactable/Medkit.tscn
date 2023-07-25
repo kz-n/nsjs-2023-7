@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://biq12otwmpl0e"]
+
+[ext_resource type="Texture2D" uid="uid://dt7kptgct7o3s" path="res://assets/health.png" id="1_alq63"]
+[ext_resource type="PackedScene" uid="uid://dng37b8k2g7yu" path="res://interactable/InteractableComponent.tscn" id="2_pxhm3"]
+
+[node name="Medkit" type="Node2D"]
+scale = Vector2(0.44, 0.44)
+
+[node name="Health" type="Sprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(10, 10)
+texture = ExtResource("1_alq63")
+
+[node name="InteractableComponent" parent="." instance=ExtResource("2_pxhm3")]
