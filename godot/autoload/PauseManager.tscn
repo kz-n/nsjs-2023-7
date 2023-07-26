@@ -1,0 +1,57 @@
+[gd_scene load_steps=2 format=3 uid="uid://c7n4sq5gitflj"]
+
+[ext_resource type="FontFile" uid="uid://d2lc4c01w8kgo" path="res://assets/font/Capital_Hill.ttf" id="1_svbfw"]
+
+[node name="PauseManager" type="Node2D"]
+process_mode = 2
+visible = false
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+process_mode = 2
+layer = 128
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.560784)
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 648.0
+grow_horizontal = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 95
+alignment = 1
+
+[node name="Label" type="Label" parent="CanvasLayer/Control/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_svbfw")
+theme_override_font_sizes/font_size = 86
+text = "Paused"
+horizontal_alignment = 1
+
+[node name="LoadButton" type="Button" parent="CanvasLayer/Control/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_svbfw")
+text = "Load last checkpoint"
+
+[node name="QuitButton" type="Button" parent="CanvasLayer/Control/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_svbfw")
+text = "Quit
+"

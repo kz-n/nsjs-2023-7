@@ -1,31 +1,44 @@
-[gd_scene load_steps=11 format=3 uid="uid://clattllvt4rmf"]
+[gd_scene load_steps=15 format=3 uid="uid://clattllvt4rmf"]
 
 [ext_resource type="Script" path="res://player/PlayerController.gd" id="1_84w2n"]
-[ext_resource type="Texture2D" uid="uid://df1dnn40x66hv" path="res://assets/kenney/monochrome_tilemap_transparent_packed.png" id="2_b1qfy"]
+[ext_resource type="Texture2D" uid="uid://by2k0tnjs2i83" path="res://assets/droid_zapper/wake.png" id="2_2bhb0"]
 [ext_resource type="Shader" path="res://shaders/vignette.gdshader" id="3_g7pms"]
+[ext_resource type="Texture2D" uid="uid://i51orfitw6q7" path="res://assets/droid_zapper/run.png" id="3_qrkcn"]
 [ext_resource type="AudioStream" uid="uid://cd4emihr7jbe3" path="res://assets/sound/Amb_InnerMind_LOOP.wav" id="4_cuorw"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4yoc0"]
 radius = 32.5
 height = 67.0
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_l51qx"]
-atlas = ExtResource("2_b1qfy")
-region = Rect2(0, 192, 16, 16)
+[sub_resource type="AtlasTexture" id="AtlasTexture_t0qif"]
+atlas = ExtResource("2_2bhb0")
+region = Rect2(0, 205, 41, 41)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_6f7qa"]
-atlas = ExtResource("2_b1qfy")
-region = Rect2(32, 192, 16, 16)
+[sub_resource type="AtlasTexture" id="AtlasTexture_0etpt"]
+atlas = ExtResource("3_qrkcn")
+region = Rect2(0, 41, 41, 41)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_oi50i"]
-atlas = ExtResource("2_b1qfy")
-region = Rect2(48, 192, 16, 16)
+[sub_resource type="AtlasTexture" id="AtlasTexture_b45uw"]
+atlas = ExtResource("3_qrkcn")
+region = Rect2(0, 82, 41, 41)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nkdcm"]
+atlas = ExtResource("3_qrkcn")
+region = Rect2(0, 123, 41, 41)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_74hy1"]
+atlas = ExtResource("3_qrkcn")
+region = Rect2(0, 164, 41, 41)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_clr6l"]
+atlas = ExtResource("3_qrkcn")
+region = Rect2(0, 205, 41, 41)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_s7jlu"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_l51qx")
+"texture": SubResource("AtlasTexture_t0qif")
 }],
 "loop": true,
 "name": &"idle",
@@ -33,10 +46,19 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_6f7qa")
+"texture": SubResource("AtlasTexture_0etpt")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_oi50i")
+"texture": SubResource("AtlasTexture_b45uw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nkdcm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_74hy1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_clr6l")
 }],
 "loop": true,
 "name": &"walk",
@@ -61,21 +83,23 @@ shape = SubResource("CapsuleShape2D_4yoc0")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CollisionShape2D"]
 texture_filter = 1
-position = Vector2(0.5, -11)
-scale = Vector2(4, 4)
+position = Vector2(0.624999, -13.75)
+scale = Vector2(2.24695, 2.24695)
 sprite_frames = SubResource("SpriteFrames_s7jlu")
 animation = &"idle"
+frame_progress = 0.503993
+offset = Vector2(4.775, 0)
 
 [node name="Camera2D" type="Camera2D" parent="."]
-offset = Vector2(23.255, 0)
-zoom = Vector2(1.5, 1.5)
+offset = Vector2(23.255, -236.84)
+zoom = Vector2(0.875, 0.875)
 drag_horizontal_enabled = true
 drag_vertical_enabled = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
-visible = false
 material = SubResource("ShaderMaterial_hoyr3")
 anchors_preset = 15
 anchor_right = 1.0

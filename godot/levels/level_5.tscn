@@ -1,0 +1,206 @@
+[gd_scene load_steps=13 format=3 uid="uid://d1itk4ygdexkr"]
+
+[ext_resource type="Script" path="res://levels/level_5.gd" id="1_37rq5"]
+[ext_resource type="Texture2D" uid="uid://dhl13f8jqqhl0" path="res://assets/tilemap_sf/Grafika/bg.png" id="1_cidec"]
+[ext_resource type="TileSet" uid="uid://b0ssei7yt3pu4" path="res://levels/tileset.tres" id="2_inusc"]
+[ext_resource type="PackedScene" uid="uid://clattllvt4rmf" path="res://player/PlayerController.tscn" id="3_t11wd"]
+[ext_resource type="Texture2D" uid="uid://cndjamnegghex" path="res://assets/pod.png" id="4_po2sk"]
+[ext_resource type="PackedScene" uid="uid://c1hftvu2picpq" path="res://interactable/Door.tscn" id="5_ka38r"]
+[ext_resource type="PackedScene" uid="uid://dfjb2dpxphywj" path="res://sparks/Sparks.tscn" id="5_x65y0"]
+[ext_resource type="PackedScene" uid="uid://dwc52dtxuufk1" path="res://levels/ending.tscn" id="6_5npsl"]
+[ext_resource type="Texture2D" uid="uid://dewwahdb0jady" path="res://assets/exit.png" id="6_5o73m"]
+[ext_resource type="PackedScene" uid="uid://bqlq31nc6a5wy" path="res://button/Button.tscn" id="7_jcyme"]
+[ext_resource type="FontFile" uid="uid://d2lc4c01w8kgo" path="res://assets/font/Capital_Hill.ttf" id="9_3w3qy"]
+[ext_resource type="PackedScene" uid="uid://cano0tskc67f2" path="res://interactable/OxygenTank.tscn" id="9_413ao"]
+
+[node name="level_5" type="Node2D"]
+script = ExtResource("1_37rq5")
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.5, 0.5)
+motion_mirroring = Vector2(1920, 1080)
+
+[node name="Bg" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+texture = ExtResource("1_cidec")
+
+[node name="TileMap" type="TileMap" parent="."]
+modulate = Color(0.717647, 0.717647, 0.717647, 1)
+texture_filter = 1
+position = Vector2(1, 0)
+tile_set = ExtResource("2_inusc")
+format = 2
+layer_0/name = "base"
+layer_0/tile_data = PackedInt32Array(65532, 786432, 15, 131068, 786432, 15, 196604, 786432, 15, 65533, 786432, 15, 131069, 655360, 9, 196605, 655360, 10, 65534, 786432, 15, 131070, 655360, 9, 196606, 655360, 10, 65535, 786432, 15, 131071, 655360, 9, 196607, 655360, 10, 0, 786432, 15, 65536, 655360, 9, 131072, 655360, 10, 1, 786432, 15, 65537, 1179648, 9, 131073, 655360, 10, 2, 786432, 15, 65538, 655360, 9, 131074, 655360, 10, 3, 786432, 15, 65539, 1179648, 9, 131075, 655360, 10, 4, 786432, 15, 65540, 655360, 9, 131076, 655360, 10, 5, 786432, 15, 65541, 1179648, 9, 131077, 655360, 10, 6, 786432, 15, 65542, 655360, 9, 131078, 655360, 10, 7, 786432, 15, 65543, 1179648, 9, 131079, 655360, 10, 8, 786432, 15, 65544, 1179648, 9, 131080, 655360, 10, 9, 786432, 15, 65545, 655360, 9, 131081, 655360, 10, 10, 786432, 15, 65546, 655360, 9, 131082, 655360, 10, 11, 786432, 15, 65547, 786432, 15, 131083, 786432, 15, 393212, 786432, 15, 458748, 786432, 15, 393213, 262144, 11, 458749, 786432, 15, 393214, 262144, 11, 458750, 786432, 15, 393215, 262144, 11, 458751, 786432, 15, 327680, 262144, 11, 393216, 786432, 15, 327681, 262144, 11, 393217, 786432, 15, 327682, 262144, 11, 393218, 786432, 15, 327683, 262144, 11, 393219, 786432, 15, 327684, 262144, 11, 393220, 786432, 15, 327685, 262144, 11, 393221, 786432, 15, 327686, 262144, 11, 393222, 786432, 15, 327687, 262144, 11, 393223, 786432, 15, 327688, 262144, 11, 393224, 786432, 15, 327689, 262144, 11, 393225, 786432, 15, 327690, 262144, 11, 393226, 786432, 15, 327691, 786432, 15, 393227, 786432, 15, 327677, 196608, 10, 327678, 196608, 10, 262142, 196608, 10, 262141, 196608, 10, 262143, 196608, 10, 196608, 196608, 10, 262144, 196608, 10, 262145, 196608, 10, 262146, 196608, 10, 262147, 196608, 10, 262148, 196608, 10, 262149, 196608, 10, 262150, 196608, 10, 262151, 196608, 10, 262152, 196608, 10, 262153, 196608, 10, 262154, 196608, 10, 196618, 196608, 10, 196617, 196608, 10, 196616, 196608, 10, 196615, 196608, 10, 196614, 196608, 10, 196613, 196608, 10, 196612, 196608, 10, 196611, 196608, 10, 196610, 196608, 10, 327679, 196608, 10, 196609, 196608, 10, 327676, 786432, 15, 262140, 786432, 15, 262155, 786432, 15, 196619, 786432, 15, 458756, 589824, 6, 458755, 524288, 6, -65532, 589824, 6, -65533, 524288, 6)
+layer_1/name = "details"
+layer_1/enabled = true
+layer_1/modulate = Color(1, 1, 1, 1)
+layer_1/y_sort_enabled = false
+layer_1/y_sort_origin = 0
+layer_1/z_index = 0
+layer_1/tile_data = PackedInt32Array(393219, 983040, 7, 458755, 524288, 8, 458754, 458752, 7, -65533, 524288, 7, -65534, 458752, 7, 65544, 655360, 9, 65545, 1179648, 9, 393217, 983040, 7, 393221, 983040, 7, 393223, 983040, 7, 131073, 983040, 7, 131075, 983040, 7, 131077, 983040, 7, 131079, 983040, 7)
+layer_2/name = "interactions"
+layer_2/enabled = true
+layer_2/modulate = Color(1, 1, 1, 1)
+layer_2/y_sort_enabled = false
+layer_2/y_sort_origin = 0
+layer_2/z_index = 0
+layer_2/tile_data = PackedInt32Array()
+layer_3/name = "WIRE"
+layer_3/enabled = true
+layer_3/modulate = Color(1, 1, 1, 1)
+layer_3/y_sort_enabled = false
+layer_3/y_sort_origin = 0
+layer_3/z_index = 0
+layer_3/tile_data = PackedInt32Array()
+
+[node name="Pod1" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(96, 98)
+scale = Vector2(2.835, 2.835)
+texture = ExtResource("4_po2sk")
+
+[node name="Door" parent="Pod1" instance=ExtResource("5_ka38r")]
+scale = Vector2(0.352734, 0.352734)
+change_to = ExtResource("6_5npsl")
+
+[node name="Pod2" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(223, 97)
+scale = Vector2(2.835, 2.835)
+texture = ExtResource("4_po2sk")
+
+[node name="Door" parent="Pod2" instance=ExtResource("5_ka38r")]
+scale = Vector2(0.352734, 0.352734)
+change_to = ExtResource("6_5npsl")
+
+[node name="Pod3" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(354, 101)
+scale = Vector2(2.835, 2.835)
+texture = ExtResource("4_po2sk")
+
+[node name="Door" parent="Pod3" instance=ExtResource("5_ka38r")]
+scale = Vector2(0.352734, 0.352734)
+change_to = ExtResource("6_5npsl")
+
+[node name="Pod4" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(481, 98)
+scale = Vector2(2.835, 2.835)
+texture = ExtResource("4_po2sk")
+
+[node name="Door" parent="Pod4" instance=ExtResource("5_ka38r")]
+scale = Vector2(0.352734, 0.352734)
+change_to = ExtResource("6_5npsl")
+
+[node name="PlayerController" parent="." instance=ExtResource("3_t11wd")]
+position = Vector2(-121, 312)
+
+[node name="Puzzle" type="Node" parent="."]
+
+[node name="Exit1" type="Sprite2D" parent="Puzzle"]
+texture_filter = 1
+position = Vector2(95, 65)
+texture = ExtResource("6_5o73m")
+
+[node name="Exit2" type="Sprite2D" parent="Puzzle"]
+texture_filter = 1
+position = Vector2(223, 64)
+texture = ExtResource("6_5o73m")
+
+[node name="Exit3" type="Sprite2D" parent="Puzzle"]
+texture_filter = 1
+position = Vector2(354, 66)
+texture = ExtResource("6_5o73m")
+
+[node name="Exit4" type="Sprite2D" parent="Puzzle"]
+texture_filter = 1
+position = Vector2(481, 66)
+texture = ExtResource("6_5o73m")
+
+[node name="Sparks1" parent="Puzzle" instance=ExtResource("5_x65y0")]
+position = Vector2(91, 123)
+scale = Vector2(0.54, 0.54)
+
+[node name="Sparks2" parent="Puzzle" instance=ExtResource("5_x65y0")]
+position = Vector2(218, 124)
+scale = Vector2(0.54, 0.54)
+
+[node name="Sparks3" parent="Puzzle" instance=ExtResource("5_x65y0")]
+position = Vector2(348, 125)
+scale = Vector2(0.54, 0.54)
+
+[node name="Sparks4" parent="Puzzle" instance=ExtResource("5_x65y0")]
+position = Vector2(477, 125)
+scale = Vector2(0.54, 0.54)
+
+[node name="Button1" parent="Puzzle" instance=ExtResource("7_jcyme")]
+position = Vector2(97, 352)
+_reset = true
+
+[node name="InteractableComponent" parent="Puzzle/Button1" index="0"]
+scale = Vector2(0.77, 0.77)
+
+[node name="Button2" parent="Puzzle" instance=ExtResource("7_jcyme")]
+position = Vector2(227, 355)
+_reset = true
+
+[node name="InteractableComponent" parent="Puzzle/Button2" index="0"]
+scale = Vector2(0.77, 0.77)
+
+[node name="Button3" parent="Puzzle" instance=ExtResource("7_jcyme")]
+position = Vector2(356, 355)
+_reset = true
+
+[node name="InteractableComponent" parent="Puzzle/Button3" index="0"]
+scale = Vector2(0.77, 0.77)
+
+[node name="Button4" parent="Puzzle" instance=ExtResource("7_jcyme")]
+position = Vector2(482, 356)
+_reset = true
+
+[node name="InteractableComponent" parent="Puzzle/Button4" index="0"]
+scale = Vector2(0.77, 0.77)
+
+[node name="Submit" parent="Puzzle" instance=ExtResource("7_jcyme")]
+position = Vector2(610, 295)
+_reset = true
+
+[node name="InteractableComponent" parent="Puzzle/Submit" index="0"]
+scale = Vector2(0.77, 0.77)
+
+[node name="Label" type="Label" parent="."]
+z_index = 155
+texture_filter = 3
+offset_left = 575.0
+offset_top = 306.0
+offset_right = 647.0
+offset_bottom = 332.0
+theme_override_fonts/font = ExtResource("9_3w3qy")
+text = "reset"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Sparks5" parent="." instance=ExtResource("5_x65y0")]
+position = Vector2(605, 127)
+scale = Vector2(0.54, 0.54)
+
+[node name="OxygenTank" parent="." instance=ExtResource("9_413ao")]
+position = Vector2(-141, 124)
+
+[node name="OxygenTank2" parent="." instance=ExtResource("9_413ao")]
+position = Vector2(-32, 127)
+
+[connection signal="pressed" from="Puzzle/Button1" to="." method="_on_button_1_pressed"]
+[connection signal="pressed" from="Puzzle/Button2" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="Puzzle/Button3" to="." method="_on_button_3_pressed"]
+[connection signal="pressed" from="Puzzle/Button4" to="." method="_on_button_4_pressed"]
+[connection signal="pressed" from="Puzzle/Submit" to="." method="_on_submit_pressed"]
+
+[editable path="Puzzle/Button1"]
+[editable path="Puzzle/Button2"]
+[editable path="Puzzle/Button3"]
+[editable path="Puzzle/Button4"]
+[editable path="Puzzle/Submit"]

@@ -8,6 +8,8 @@ var anim_moving = false
 
 func _ready():
 	PlayerManager.set_player(self)
+	if $O2Timer.is_stopped(): $O2Timer.start(1)
+	CheckpointManager._save()
 	
 func _physics_process(delta):
 	var direction = Input.get_vector("left", "right", "up", "down")
@@ -36,7 +38,9 @@ func _process(_delta):
 
 
 func _on_o_2_timer_timeout():
-	PlayerManager.deplete_o2()
-	if is_zero_approx(PlayerManager.o2):
+	if PlayerManager.o2 > 0:
+		PlayerManager.deplete_o2()
+	if is_zero_approx(PlayerManager.o2) or PlayerManager.o2 < 0:
 		PlayerManager.deplete_hp()
-
+	if is_zero_approx(PlayerManager.hp) or PlayerManager.hp < 0:
+		MainScene.change_scene(load("res://levels/death.tscn"))

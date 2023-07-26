@@ -2,9 +2,11 @@ extends Node
 
 var player: CharacterBody2D
 
+var is_ready = false
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	print('asd')
+	pass
 
 func set_player(p): player = p
 
@@ -24,7 +26,8 @@ func refill_health():
 	if hp > 50: hp = 50;
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	pass
+	if get_child_count() > 1:
+		get_child(0).queue_free()
 	
 func random_sfx(path):
 	

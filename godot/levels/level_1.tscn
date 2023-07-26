@@ -1,5 +1,6 @@
-[gd_scene load_steps=8 format=3 uid="uid://hytyye86vsdn"]
+[gd_scene load_steps=9 format=3 uid="uid://hytyye86vsdn"]
 
+[ext_resource type="Texture2D" uid="uid://dhl13f8jqqhl0" path="res://assets/tilemap_sf/Grafika/bg.png" id="1_2nn77"]
 [ext_resource type="TileSet" uid="uid://b0ssei7yt3pu4" path="res://levels/tileset.tres" id="1_kxxvw"]
 [ext_resource type="PackedScene" uid="uid://dfjb2dpxphywj" path="res://sparks/Sparks.tscn" id="3_a0y50"]
 [ext_resource type="PackedScene" uid="uid://clattllvt4rmf" path="res://player/PlayerController.tscn" id="4_ohth1"]
@@ -9,6 +10,15 @@
 [ext_resource type="Texture2D" uid="uid://dewwahdb0jady" path="res://assets/exit.png" id="7_a5oy0"]
 
 [node name="level_1" type="Node2D"]
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.5, 0.5)
+motion_mirroring = Vector2(1920, 1080)
+
+[node name="Bg" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+texture = ExtResource("1_2nn77")
 
 [node name="TileMap" type="TileMap" parent="."]
 modulate = Color(0.717647, 0.717647, 0.717647, 1)

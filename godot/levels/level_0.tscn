@@ -1,5 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://dk0hwlm77m4ch"]
+[gd_scene load_steps=7 format=3 uid="uid://dk0hwlm77m4ch"]
 
+[ext_resource type="Texture2D" uid="uid://dhl13f8jqqhl0" path="res://assets/tilemap_sf/Grafika/bg.png" id="1_8epdt"]
 [ext_resource type="AudioStream" uid="uid://djim6jr8ieymp" path="res://assets/sound/Amb_Alarm_LOOP.wav" id="2_j4ucf"]
 [ext_resource type="TileSet" uid="uid://b0ssei7yt3pu4" path="res://levels/tileset.tres" id="3_04vxl"]
 [ext_resource type="PackedScene" uid="uid://hytyye86vsdn" path="res://levels/level_1.tscn" id="5_ah1o4"]
@@ -7,6 +8,15 @@
 [ext_resource type="PackedScene" uid="uid://c1hftvu2picpq" path="res://interactable/Door.tscn" id="7_ddw6a"]
 
 [node name="World" type="Node2D"]
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.5, 0.5)
+motion_mirroring = Vector2(1920, 1080)
+
+[node name="Bg" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+texture = ExtResource("1_8epdt")
 
 [node name="Alarm" type="AudioStreamPlayer2D" parent="."]
 position = Vector2(156, 161)

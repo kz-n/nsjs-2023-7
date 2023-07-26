@@ -7,7 +7,6 @@ hipass = 0.16
 wet = 0.54
 
 [resource]
-bus/0/mute = true
 bus/1/name = &"alarm"
 bus/1/solo = false
 bus/1/mute = false

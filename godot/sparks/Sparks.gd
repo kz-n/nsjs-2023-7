@@ -12,14 +12,15 @@ var entered := false;
 
 func _button_pressed():
 	visible = !visible
+	
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	if $Timer.is_stopped(): $Timer.start()
 	if visible:
 		if !$AudioStreamPlayer2D.playing: $AudioStreamPlayer2D.play()
 	else:
 		$AudioStreamPlayer2D.stop()
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
 
 
 func _on_timer_timeout():
